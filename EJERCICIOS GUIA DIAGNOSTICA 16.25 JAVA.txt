@@ -1,0 +1,337 @@
+16.
+import java.util.Scanner;
+
+public class TablaMultiplicar {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        System.out.print("¿Qué tabla de multiplicar quieres ver?: ");
+        int numero = teclado.nextInt();
+        
+        // Inicializamos el contador en 1
+        int i = 1;
+        
+        System.out.println("\n--- Tabla del " + numero + " ---");
+        
+        // El ciclo se ejecutará mientras i sea menor o igual a 10
+        while (i <= 10) {
+            int resultado = numero * i;
+            System.out.println(numero + " x " + i + " = " + resultado);
+            
+            // ¡Importante! Incrementamos el contador para evitar un bucle infinito
+            i++;
+        }
+        
+        teclado.close();
+    }
+}
+
+
+17.
+import java.util.Scanner;
+
+public class SumaNaturales {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        System.out.print("Introduce un número límite (n): ");
+        int n = teclado.nextInt();
+        
+        int suma = 0;  // Variable para acumular el resultado
+        int i = 1;     // Contador que iniciará en 1
+        
+        while (i <= n) {
+            suma += i; // Sumamos el valor actual de i a nuestra variable suma
+            i++;       // Pasamos al siguiente número
+        }
+        
+        System.out.println("La suma de los números naturales desde 1 hasta " + n + " es: " + suma);
+        
+        teclado.close();
+    }
+}
+
+18. 
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        System.out.print("Introduce un número para calcular su factorial: ");
+        int numero = teclado.nextInt();
+        
+        // Regla 1: No existen factoriales de números negativos
+        if (numero < 0) {
+            System.out.println("Error: El factorial no está definido para números negativos.");
+        } else {
+            long factorial = 1; // Usamos 'long' porque el factorial crece muy rápido
+            int i = numero;    // Usaremos el propio número como contador hacia atrás
+            
+            // El ciclo no se ejecuta si el número es 0, manteniendo el factorial en 1
+            while (i > 0) {
+                factorial *= i; // Multiplicamos el acumulado por el valor de i
+                i--;            // Decrementamos el contador
+            }
+            
+            System.out.println("El factorial de " + numero + " es: " + factorial);
+        }
+        
+        teclado.close();
+    }
+}
+
+19.
+
+import java.util.Scanner;
+
+public class FibonacciWhile {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("¿Cuántos números de la serie Fibonacci quieres ver?: ");
+        int n = teclado.nextInt();
+
+        int a = 0; // Primer número de la serie
+        int b = 1; // Segundo número de la serie
+        int i = 1; // Contador para el ciclo
+
+        System.out.println("\nLos primeros " + n + " números de Fibonacci son:");
+
+        while (i <= n) {
+            System.out.print(a + " ");
+
+            // Calculamos el siguiente número
+            int siguiente = a + b;
+            
+            // Desplazamos los valores:
+            // El que era 'b' ahora es 'a', y el nuevo es 'b'
+            a = b;
+            b = siguiente;
+
+            i++; // Incrementamos el contador
+        }
+
+        System.out.println(); // Salto de línea al final
+        teclado.close();
+    }
+}
+
+20. 
+import java.util.Scanner;
+import java.util.Random;
+
+public class AdivinaElColor {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        Random aleatorio = new Random();
+
+        // 1. Definimos el conjunto de 10 colores
+        String[] colores = {
+            "Rojo", "Azul", "Verde", "Amarillo", "Rosa", 
+            "Naranja", "Morado", "Blanco", "Negro", "Gris"
+        };
+
+        // 2. La computadora elige uno al azar
+        int indiceAzar = aleatorio.nextInt(colores.length);
+        String colorSecreto = colores[indiceAzar];
+
+        int intentos = 1;
+        int maxIntentos = 10;
+        boolean acertado = false;
+
+        System.out.println("¡Bienvenido al juego de adivinar el color!");
+        System.out.println("Tengo un color en mente de esta lista: ");
+        System.out.println("Rojo, Azul, Verde, Amarillo, Rosa, Naranja, Morado, Blanco, Negro, Gris");
+        System.out.println("Tienes " + maxIntentos + " intentos. ¡Suerte!");
+
+        // 3. Ciclo While para los intentos
+        while (intentos <= maxIntentos && !acertado) {
+            System.out.print("\nIntento #" + intentos + ": ¿Qué color es? ");
+            String respuesta = teclado.nextLine();
+
+            // Comparamos ignorando mayúsculas/minúsculas
+            if (respuesta.equalsIgnoreCase(colorSecreto)) {
+                acertado = true;
+                System.out.println("¡FELICIDADES! Has adivinado el color: " + colorSecreto);
+            } else {
+                System.out.println("No es ese... intenta de nuevo.");
+                intentos++;
+            }
+        }
+
+        // 4. Mensaje en caso de perder
+        if (!acertado) {
+            System.out.println("\nLo siento, se acabaron los intentos. El color era: " + colorSecreto);
+        }
+
+        teclado.close();
+    }
+}
+
+
+
+21.
+
+public class NumerosPares {
+    public static void main(String[] args) {
+        // Inicializamos el contador en 2, que es el primer par
+        int i = 2;
+        
+        System.out.println("--- Números pares del 1 al 100 ---");
+        
+        // El ciclo se repite mientras i no supere 100
+        while (i <= 100) {
+            System.out.print(i + " ");
+            
+            // Incrementamos de 2 en 2
+            i += 2;
+        }
+        
+        System.out.println("\n\nFin del programa.");
+    }
+}
+
+
+
+22.
+
+import java.util.Scanner;
+
+public class SumaDigitos {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        System.out.print("Introduce un número entero: ");
+        int numero = teclado.nextInt();
+        
+        // Guardamos el original para el mensaje final
+        int numeroOriginal = numero;
+        // Nos aseguramos de manejar números negativos convirtiéndolos a positivos
+        int n = Math.abs(numero); 
+        
+        int suma = 0;
+        
+        // El ciclo continuará mientras queden dígitos por procesar
+        while (n > 0) {
+            // 1. Obtenemos el último dígito con el residuo de 10
+            int ultimoDigito = n % 10;
+            
+            // 2. Lo sumamos al acumulador
+            suma += ultimoDigito;
+            
+            // 3. Quitamos el último dígito del número usando división entera
+            n = n / 10;
+        }
+        
+        System.out.println("La suma de los dígitos de " + numeroOriginal + " es: " + suma);
+        
+        teclado.close();
+    }
+}
+
+
+23.
+
+import java.util.Scanner;
+
+public class NumeroPrimo {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        System.out.print("Introduce un número para saber si es primo: ");
+        int numero = teclado.nextInt();
+        
+        // Los números menores o iguales a 1 no son primos
+        if (numero <= 1) {
+            System.out.println(numero + " no es un número primo.");
+        } else {
+            int divisor = 2;
+            boolean esPrimo = true;
+            
+            // Probamos dividir el número desde 2 hasta su mitad
+            // Si encontramos un divisor exacto, dejamos de buscar
+            while (divisor <= numero / 2 && esPrimo) {
+                if (numero % divisor == 0) {
+                    esPrimo = false; // Encontramos un divisor, ya no es primo
+                }
+                divisor++;
+            }
+            
+            if (esPrimo) {
+                System.out.println(numero + " es un número primo.");
+            } else {
+                System.out.println(numero + " no es un número primo.");
+            }
+        }
+        
+        teclado.close();
+    }
+}
+
+
+24.
+
+import java.util.Scanner;
+
+public class TrianguloAsteriscos {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        System.out.print("¿De cuántos niveles quieres el triángulo?: ");
+        int niveles = teclado.nextInt();
+        
+        int fila = 1; // Contador para la fila actual
+        
+        System.out.println("\n--- Tu Triángulo ---");
+        
+        // Ciclo externo: Controla cuántas filas se imprimen
+        while (fila <= niveles) {
+            
+            int asteriscos = 1; // Contador para los asteriscos de la fila actual
+            
+            // Ciclo interno: Imprime tantos asteriscos como el número de la fila
+            while (asteriscos <= fila) {
+                System.out.print("* ");
+                asteriscos++;
+            }
+            
+            // Al terminar la fila, saltamos a la siguiente línea
+            System.out.println();
+            fila++;
+        }
+        
+        teclado.close();
+    }
+}
+
+
+25.
+
+import java.util.Scanner;
+
+public class CalculoPotencia {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        System.out.print("Introduce la base: ");
+        int base = teclado.nextInt();
+        
+        System.out.print("Introduce el exponente (positivo): ");
+        int exponente = teclado.nextInt();
+        
+        long resultado = 1; // El neutro de la multiplicación es 1
+        int i = 1;         // Contador para el ciclo
+        
+        // Multiplicamos la 'base' por sí misma 'exponente' veces
+        while (i <= exponente) {
+            resultado = resultado * base;
+            i++;
+        }
+        
+        System.out.println("\nEl resultado de " + base + " elevado a " + exponente + " es: " + resultado);
+        
+        teclado.close();
+    }
+}
